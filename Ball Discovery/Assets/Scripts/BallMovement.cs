@@ -23,7 +23,7 @@ public class BallMovement : MonoBehaviour
 
             Vector3 movement_force = new Vector3(moveHorizontal, 0.0f, moveVertical);
 
-            rb.AddRelativeForce(movement_force.normalized * (movement_speed * Time.fixedDeltaTime));
+            rb.AddForce(movement_force.normalized * (movement_speed * Time.fixedDeltaTime));
         }
     }
 }
