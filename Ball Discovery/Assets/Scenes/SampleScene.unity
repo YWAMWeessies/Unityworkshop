@@ -140,11 +140,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 121445737}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8de9bc7029106c54187f2205c91d7c33, type: 3}
+  m_Script: {fileID: 11500000, guid: 83628d4ce20287e428da49f264a2526e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 4720799398503951658}
-  rotateSpeed: 5
+  player: {fileID: 4720799398503951658}
 --- !u!81 &121445739
 AudioListener:
   m_ObjectHideFlags: 0
