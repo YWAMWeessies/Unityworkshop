@@ -5,7 +5,7 @@ using UnityEngine;
 public class BallMovement : MonoBehaviour
 {
     public Rigidbody rb;
-    public float speed;
+    public float movement_speed;
 
     // Start is called before the first frame update
     void Start()
@@ -16,11 +16,14 @@ public class BallMovement : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        float moveHorizontal = Input.GetAxis("Horizontal");
-        float moveVertical = Input.GetAxis("Vertical");
+        if (Input.GetButton("Horizontal") || Input.GetButton("Vertical"))
+        {
+            float moveHorizontal = Input.GetAxis("Horizontal");
+            float moveVertical = Input.GetAxis("Vertical");
 
-        Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
+            Vector3 movement_force = new Vector3(moveHorizontal, 0.0f, moveVertical);
 
-        rb.AddForce(movement * (speed * Time.deltaTime));
+            rb.AddForce(movement_force.normalized * (movement_speed * Time.fixedDeltaTime));
+        }
     }
 }
