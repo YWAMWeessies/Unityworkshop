@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Powerup : MonoBehaviour
 {
+    public Vector3 xyz;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -14,5 +16,16 @@ public class Powerup : MonoBehaviour
     void Update()
     {
         
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag.Equals("Player"))
+        {
+            Debug.Log("Power-up picked up");
+            other.transform.localScale = xyz;
+            //other.transform.position = new Vector3(transform.position.x, transform.position.y + new_y_size, transform.position.z);
+            Destroy(transform.gameObject);
+        }
     }
 }
