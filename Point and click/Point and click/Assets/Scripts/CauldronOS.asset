@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78e89d6a1bbf08541bb2b603e916034f, type: 3}
   m_Name: CauldronOS
   m_EditorClassIdentifier: 
-  _ingredientsInCauldron: 0
+  _ingredientsInCauldron: 3

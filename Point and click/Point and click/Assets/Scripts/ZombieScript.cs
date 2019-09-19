@@ -6,7 +6,7 @@ using UnityEngine.Events;
 
 public class ZombieScript : MonoBehaviour
 {
-    public UnityEvent m_LightsTurnedOn = new UnityEvent();
+    public GameObject Light;
     public GameObject Cauldron;
     public float WalkingSpeed = 1f;
     public float RotationSpeed = 1f;
@@ -17,7 +17,6 @@ public class ZombieScript : MonoBehaviour
     void Start()
     {
         origin = transform.position;
-        m_LightsTurnedOn.AddListener(LightsOnHandler);
     }
 
     // Update is called once per frame
@@ -28,15 +27,7 @@ public class ZombieScript : MonoBehaviour
             Walk();
         }
 
-        CheckForLightsOn();
-    }
-
-    private void CheckForLightsOn()
-    {
-        if(Input.GetButton("Fire1"))
-        {
-            m_LightsTurnedOn.Invoke();
-        }
+        _lightsOn = Light.active;
     }
 
     private void Walk()
@@ -52,10 +43,5 @@ public class ZombieScript : MonoBehaviour
         }
 
         transform.position += transform.forward * Time.deltaTime * WalkingSpeed;
-    }
-
-    private void LightsOnHandler()
-    {
-        _lightsOn = !_lightsOn;
     }
 }

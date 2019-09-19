@@ -6,15 +6,13 @@ using UnityEngine.Events;
 
 public class RevivableCharacterScript : MonoBehaviour
 {
-    public UnityEvent m_Revived = new UnityEvent();
+    public CauldronSO cauldron;
     private bool _isRevived;
     public float ReviveSpeed = 1f;
 
     // Start is called before the first frame update
     void Start()
     {
-        m_Revived.AddListener(Revive);
-
         Revive();
     }
 
@@ -29,6 +27,11 @@ public class RevivableCharacterScript : MonoBehaviour
         if(_isRevived)
         {
             TurnCharacterUpright();
+        }
+
+        if(cauldron._ingredientsInCauldron >= 3)
+        {
+            _isRevived = true;
         }
     }
 
