@@ -135,3 +135,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3872e11c44f8a28428a5d5fe16fe40b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cauldronVariables: {fileID: 11400000, guid: 3cce3e7cfb28e974886e5a1f0da92859, type: 2}
