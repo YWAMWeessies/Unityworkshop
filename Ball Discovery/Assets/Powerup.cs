@@ -24,7 +24,7 @@ public class Powerup : MonoBehaviour
         {
             Debug.Log("Power-up picked up");
             other.transform.localScale = xyz;
-            //other.transform.position = new Vector3(transform.position.x, transform.position.y + new_y_size, transform.position.z);
+            other.transform.position = new Vector3(transform.position.x, transform.position.y + xyz.y, transform.position.z);
             Destroy(transform.gameObject);
         }
     }
