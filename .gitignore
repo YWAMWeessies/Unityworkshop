@@ -53,3 +53,7 @@ sysinfo.txt
 
 # Crashlytics generated file
 crashlytics-build.properties
+*.log
+*.log
+Open world/Open world/Temp/UnityLockfile
+Open world/Open world/Library/shadercompiler-UnityShaderCompiler.exe0.log
