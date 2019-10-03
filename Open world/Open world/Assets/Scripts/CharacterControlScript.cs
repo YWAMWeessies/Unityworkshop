@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class CharacterControlScript : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class CharacterControlScript : MonoBehaviour
 
     private Vector3 moveDirection = Vector3.zero;
 
+    private bool isEventRunning = false;
 
     // Use this for initialization
     void Start()
@@ -50,6 +52,25 @@ public class CharacterControlScript : MonoBehaviour
         {
             // turn on the cursor
             Cursor.lockState = CursorLockMode.None;
+        }
+    }
+
+    void OnEnable()
+    {
+        AgentBehaviour.PlayerReached += TakeDamage;
+    }
+
+
+    void OnDisable()
+    {
+        AgentBehaviour.PlayerReached -= TakeDamage;
+    }
+
+    private void TakeDamage()
+    {
+        if (!isEventRunning)
+        {
+            Debug.Log("DEAD");
         }
     }
 }
