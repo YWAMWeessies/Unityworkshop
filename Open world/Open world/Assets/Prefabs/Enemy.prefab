@@ -160,6 +160,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20d8e350d930d43458a9b8e4a78b525c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FieldOfViewRange: 0
-  WanderingRadius: 0
+  agentConfig: {fileID: 11400000, guid: b1db2494fa2f3ae47a358fab2cb0d82a, type: 2}
   playerTransform: {fileID: 0}
