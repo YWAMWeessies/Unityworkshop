@@ -12,9 +12,7 @@ public class AgentBehaviour : MonoBehaviour
         Chasing,
     }
 
-    public float FieldOfViewRange;
-
-    public float WanderingRadius;
+    public AgentConfig agentConfig;
 
     public Transform playerTransform;
 
@@ -30,7 +28,13 @@ public class AgentBehaviour : MonoBehaviour
     {
         _agent = GetComponent<NavMeshAgent>();
 
+        if (!playerTransform)
+        {
+            playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+        }
+
         _currentState = PredatorStates.Wandering;
+        Debug.Log("Start state: " + _currentState);
     }
 
     private void Update()
@@ -52,7 +56,7 @@ public class AgentBehaviour : MonoBehaviour
     {
         if (_agent.remainingDistance <= _agent.stoppingDistance)
         {
-            setRandomDestinationForAgent(-WanderingRadius, WanderingRadius);
+            setRandomDestinationForAgent(-agentConfig.WanderingRadius, agentConfig.WanderingRadius);
         }
 
         if (IsPlayerInFieldOfView())
@@ -60,7 +64,7 @@ public class AgentBehaviour : MonoBehaviour
             SwitchStates(PredatorStates.Chasing);
         }
 
-        Debug.DrawRay(transform.position, transform.forward * FieldOfViewRange, Color.grey);
+        Debug.DrawRay(transform.position, transform.forward * agentConfig.AwarenessRange, Color.grey);
     }
 
     private void UpdateChasingState()
@@ -68,7 +72,7 @@ public class AgentBehaviour : MonoBehaviour
         if (!IsPlayerInFieldOfView())
         {
             SwitchStates(PredatorStates.Wandering);
-            setRandomDestinationForAgent(-WanderingRadius, WanderingRadius);
+            setRandomDestinationForAgent(-agentConfig.WanderingRadius, agentConfig.WanderingRadius);
 
         } else
         {
@@ -81,9 +85,15 @@ public class AgentBehaviour : MonoBehaviour
         }
     }
 
+    private bool IsPlayerInRange()
+    {
+        return (Vector3.Distance(transform.position, playerTransform.position) < agentConfig.AwarenessRange);
+    }
+
     private bool IsPlayerInFieldOfView()
     {
-        return (Vector3.Distance(transform.position, playerTransform.position) < FieldOfViewRange);
+        Vector3 rayDirection = playerTransform.position - transform.position;
+        return (Vector3.Angle(rayDirection, transform.forward) <= agentConfig.FieldOfViewAngle);
     }
 
     private void setRandomDestinationForAgent(float minPos, float maxPos)

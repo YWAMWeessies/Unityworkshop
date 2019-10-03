@@ -439,9 +439,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 43.848396, y: 12.184191, z: 5.719131}
+    m_Target: {x: 26.831835, y: 9.296688, z: 5.234815}
     speed: 2
-    m_Value: {x: 43.848396, y: 12.184191, z: 5.719131}
+    m_Value: {x: 26.831835, y: 9.296688, z: 5.234815}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -470,7 +470,7 @@ MonoBehaviour:
       speed: 2
       m_Value: 0
   m_Rotation:
-    m_Target: {x: -0.2884775, y: 0.33196083, z: -0.10740148, w: -0.8916711}
+    m_Target: {x: -0.30261266, y: 0.31310916, z: -0.105992876, w: -0.89397097}
     speed: 2
     m_Value: {x: -0.2884775, y: 0.33196083, z: -0.10740148, w: -0.8916711}
   m_Size:
@@ -557,7 +557,7 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
+      m_SelectedIDs: 14e0ffff
       m_LastClickedID: 0
       m_ExpandedIDs: def9ffff
       m_RenameOverlay:
@@ -621,7 +621,8 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SkipHidden: 0
     m_SearchArea: 1
-    m_Folders: []
+    m_Folders:
+    - Assets/Scripts/ScriptableObjects
   m_ViewMode: 0
   m_StartGridSize: 16
   m_LastFolders: []
